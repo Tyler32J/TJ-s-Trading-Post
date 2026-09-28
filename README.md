@@ -1,2 +1,4 @@
-# TJ-s-Trading-Post
-A personal resale storefront for collectibles and handmade goods — owner-gated listing management built with React + Tailwind.
+# TJ's Trading Post
+
+A personal storefront for reselling collectibles and handmade wood/metal work. Owner-gated listing management — browse items for sale, trade, or wanted, built with React & Tailwind CSS.
+
