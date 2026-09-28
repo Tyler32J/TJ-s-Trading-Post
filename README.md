@@ -1,16 +1,37 @@
-# React + Vite
+# TJ's Trading Post
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal storefront for reselling collectibles and one-of-a-kind handmade wood/metal work. Built as a single owner-run shop rather than a multi-seller marketplace — listings are managed through an owner-only gate, and visitors browse, view details, and reach out to buy, trade, or request items.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Browse listings by category, condition, and type (for sale, for trade, or wanted)
+- Detailed item view with photos, pricing, and condition
+- Owner-gated listing management (PIN-protected) to add new items
+- Light/dark theme support
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/) 19
+- [Vite](https://vite.dev/) for dev server and builds
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Lucide](https://lucide.dev/) for icons
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Then open the printed local URL in your browser.
+
+## Available Scripts
+
+- `npm run dev` — start the local dev server
+- `npm run build` — build for production
+- `npm run preview` — preview the production build locally
+- `npm run lint` — run ESLint
+
+## Status
+
+Listings currently live in `src/data.js` as sample/seed data. A backing database for persistent listings is planned but not yet implemented.
