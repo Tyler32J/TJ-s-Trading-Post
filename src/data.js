@@ -53,7 +53,7 @@ export const initialItems = [
     id: 3,
     title: 'Comic Book Bundle',
     description:
-      'Looking to trade my Marvel collection for DC comics. Includes 50+ issues from 1990-2000.',
+      'Looking to trade my Marvel collection for DC comics.',
     type: 'trade',
     price: null,
     category: 'Comics',
