@@ -40,8 +40,8 @@ export const initialItems = [
     id: 2,
     title: 'Antique Pocket Watch',
     description:
-      'Beautiful gold-plated pocket watch from early 1900s. Works perfectly, comes with chain.',
-    type: 'sell',
+      'Looking to buy a gold-plated pocket watch from the early 1900s. Must be in working condition, chain included preferred.',
+    type: 'buy',
     price: 180,
     category: 'Antiques',
     condition: 'good',
@@ -101,17 +101,17 @@ export const initialItems = [
     image: n64Image,
     datePosted: '2026-07-15',
   },
-  {
-    id: 7,
-    title: 'Apple Watch Series 9',
-    description:
-      'Looking to buy a brand new, sealed Apple Watch Series 9. Must be the 45mm case, Aluminum, with all original accessories and packaging included.',
-    type: 'buy',
-    price: 220,
-    category: 'Other',
-    condition: 'new',
-    seller: 'TJsTradingPost',
-    image: appleWatchImage,
-    datePosted: '2026-09-28',
-  },
+  // {
+  //   id: 7,
+  //   title: 'Apple Watch Series 9',
+  //   description:
+  //     'Looking to buy a brand new, sealed Apple Watch Series 9. Must be the 45mm case, Aluminum, with all original accessories and packaging included.',
+  //   type: 'buy',
+  //   price: 220,
+  //   category: 'Other',
+  //   condition: 'new',
+  //   seller: 'TJsTradingPost',
+  //   image: appleWatchImage,
+  //   datePosted: '2026-09-28',
+  // },
 ]
