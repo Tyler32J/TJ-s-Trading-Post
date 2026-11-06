@@ -7,6 +7,53 @@ body {
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* ---------- Theme switch (same as the portfolio) ---------- */
+
+/* The sun shows in dark mode and the moon in light mode; switching spins one out as the other spins in */
+.theme-toggle-btn .theme-icon {
+  position: absolute;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+}
+
+.theme-toggle-btn.is-dark .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.4);
+}
+
+.theme-toggle-btn.is-light .theme-icon-sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.4);
+}
+
+/* Fallback for browsers without the circle reveal: for half a second after
+   switching, colors fade instead of snapping (added by useTheme.js) */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease,
+    fill 0.45s ease, stroke 0.45s ease, box-shadow 0.45s ease !important;
+}
+
+/* ...except the toggle icons, which keep their spin */
+.theme-switching .theme-toggle-btn .theme-icon {
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s !important;
+}
+
+/* Soft fade between themes: the browser cross-fades from a picture of the old
+   page to the new one (started in useTheme.js). This just sets the speed. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.45s;
+  animation-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle-btn .theme-icon {
+    transition: none;
+  }
+}
+
 .font-serif-display {
   font-family: Georgia, 'Times New Roman', serif;
 }

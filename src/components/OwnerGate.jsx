@@ -25,7 +25,7 @@ function OwnerGate({ onUnlock, pinConfigured }) {
           Owner Access
         </h2>
         <p className="text-sm text-neutral-500 dark:text-neutral-400">
-          Enter the owner PIN to list a new item.
+          Enter your PIN to manage your listings.
         </p>
       </div>
 

@@ -1,7 +1,16 @@
-import { DollarSign, Handshake, Repeat, Search } from 'lucide-react'
+import { useState } from 'react'
+import { DollarSign, Hammer, Repeat, Search } from 'lucide-react'
 import FeatureBlock from './FeatureBlock'
 
-function Hero({ setCurrentView, isOwner }) {
+function Hero({ setCurrentView, isOwner, onSearch }) {
+  const [query, setQuery] = useState('')
+
+  function handleSubmit(event) {
+    // Stop the browser's default form behavior (reloading the page).
+    event.preventDefault()
+    onSearch(query.trim())
+  }
+
   return (
     <section className="bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d] px-6 py-20">
       <div className="mx-auto max-w-4xl text-center">
@@ -10,11 +19,36 @@ function Hero({ setCurrentView, isOwner }) {
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-300">
           Your trusted marketplace for collectibles, antiques, treasures, and
-          handmade craftsmanship. Connect with collectors, traders, and other
-          makers.
+          handmade craftsmanship. New finds and fresh handmade pieces show up
+          all the time.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        {/* A <form> means pressing Enter searches too, not just clicking the button. */}
+        <form
+          onSubmit={handleSubmit}
+          role="search"
+          className="mx-auto mt-8 flex max-w-xl gap-2"
+        >
+          <div className="relative flex-1">
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400" />
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search cards, vinyl, handmade…"
+              aria-label="Search items"
+              className="w-full rounded-lg border border-[#3a3a3a] bg-[#1f1f1f] py-3 pl-12 pr-4 text-white placeholder-neutral-500 focus:border-[#d4af37] focus:outline-none focus:ring-1 focus:ring-[#d4af37]"
+            />
+          </div>
+          <button
+            type="submit"
+            className="rounded-lg bg-[#d4af37] px-5 font-semibold text-[#1a1a1a] transition-colors hover:bg-[#e0c04d]"
+          >
+            Search
+          </button>
+        </form>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
           <button
             type="button"
             onClick={() => setCurrentView('marketplace')}
@@ -26,10 +60,10 @@ function Hero({ setCurrentView, isOwner }) {
           {isOwner && (
             <button
               type="button"
-              onClick={() => setCurrentView('list-item')}
+              onClick={() => setCurrentView('admin')}
               className="rounded-lg border-2 border-[#d4af37] px-6 py-3 font-semibold text-[#d4af37] transition-colors hover:bg-[#d4af37]/10"
             >
-              List Your Item
+              Manage Listings
             </button>
           )}
         </div>
@@ -47,9 +81,9 @@ function Hero({ setCurrentView, isOwner }) {
           description="Exchange items with other traders and collectors"
         />
         <FeatureBlock
-          icon={Handshake}
-          title="Trusted Community"
-          description="Connect with verified collectors and traders"
+          icon={Hammer}
+          title="Built by hand"
+          description="Wood and metal pieces made in my own shop"
         />
       </div>
     </section>

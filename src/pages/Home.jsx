@@ -1,12 +1,17 @@
 import Hero from '../components/Hero'
 import ItemCard from '../components/ItemCard'
+import CustomOrderForm from '../components/CustomOrderForm'
 
-function Home({ items, setCurrentView, onSelectItem, isOwner }) {
-  const featuredItems = items.slice(0, 3)
+function Home({ items, setCurrentView, onSelectItem, isOwner, onSearch, isSaved, onToggleSave }) {
+  // Listings you marked Featured on the admin page come first, then the rest fill in.
+  const featuredItems = [
+    ...items.filter((item) => item.featured),
+    ...items.filter((item) => !item.featured),
+  ].slice(0, 3)
 
   return (
     <>
-      <Hero setCurrentView={setCurrentView} isOwner={isOwner} />
+      <Hero setCurrentView={setCurrentView} isOwner={isOwner} onSearch={onSearch} />
 
       <section className="bg-neutral-50 px-6 py-16 dark:bg-neutral-900">
         <div className="mx-auto max-w-6xl">
@@ -19,7 +24,13 @@ function Home({ items, setCurrentView, onSelectItem, isOwner }) {
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featuredItems.map((item) => (
-              <ItemCard key={item.id} item={item} onSelect={onSelectItem} />
+              <ItemCard
+                key={item.id}
+                item={item}
+                onSelect={onSelectItem}
+                isSaved={isSaved}
+                onToggleSave={onToggleSave}
+              />
             ))}
           </div>
 
@@ -34,6 +45,8 @@ function Home({ items, setCurrentView, onSelectItem, isOwner }) {
           </div>
         </div>
       </section>
+
+      <CustomOrderForm />
     </>
   )
 }

@@ -8,6 +8,25 @@ import vinylImage from './assets/vinyl_record_collection.png'
 import n64Image from './assets/vintage_video_game_console.png'
 import appleWatchImage from './assets/apple_watch.png'
 
+// One place for contact info, so the footer and "Contact Seller" always match.
+export const CONTACT = {
+  email: 'farrelltyler32@gmail.com',
+  phone: '+12283633068',
+  phoneDisplay: '(228) 363-3068',
+  location: 'Tupelo, MS',
+  // Paste your page links here. A footer icon only shows up once its link is filled in.
+  facebook: '',
+  instagram: '',
+}
+
+// What each condition grade means. Shown in the item popup's condition guide.
+export const CONDITION_INFO = {
+  new: 'Never used. Still sealed or in the original packaging.',
+  'like-new': 'Used once or twice. No visible wear.',
+  good: 'Normal light wear and works perfectly. Any flaws are in the photos.',
+  fair: 'Clear wear or small flaws, priced to match. Ask for close-ups.',
+}
+
 export const CATEGORIES = [
   'Handmade',
   'Collectibles',
@@ -55,6 +74,7 @@ export const initialItems = [
     description:
       'Looking to trade my Marvel collection for DC comics.',
     type: 'trade',
+    tradeFor: 'DC comics',
     price: null,
     category: 'Comics',
     condition: 'good',
